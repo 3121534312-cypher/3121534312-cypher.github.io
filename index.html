@@ -389,7 +389,8 @@ FUNCTION Decode_Pipeline(ciphertext):
             ytResults.innerHTML = `<div class="text-emerald-400 font-bold mb-4 border-b border-emerald-800 pb-2">Successfully decrypted ${videos.length} videos from ${sourceStr}.</div>`;
             
             videos.forEach((video, index) => {
-                const vidId = video.id || (video.snippet && video.snippet.resourceId ? video.snippet.resourceId.videoId : 'UNKNOWN');
+                // Priority swapped: Check API's resourceId.videoId first, then fallback to local JSON's video.id
+                const vidId = (video.snippet && video.snippet.resourceId && video.snippet.resourceId.videoId) ? video.snippet.resourceId.videoId : video.id || 'UNKNOWN';
                 const rawTitle = video.title || (video.snippet ? video.snippet.title : '');
                 const rawDesc = video.description || (video.snippet ? video.snippet.description : '');
                 const date = video.publishedAt ? video.publishedAt.substring(0, 10) : (video.snippet && video.snippet.publishedAt ? video.snippet.publishedAt.substring(0, 10) : 'ARCHIVE DATA');
