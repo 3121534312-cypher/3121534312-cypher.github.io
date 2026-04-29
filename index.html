@@ -103,22 +103,142 @@
         <!-- DOCS VIEW -->
         <div id="view-docs" class="view-section hidden-view border border-emerald-800/30 bg-neutral-900/50 p-6 rounded-sm flex-grow overflow-y-auto scrollable">
              <div class="max-w-4xl mx-auto space-y-6 text-emerald-300/80 text-sm leading-relaxed pb-8">
-                <h1 class="text-2xl font-bold text-emerald-400 border-b border-emerald-800 pb-2 uppercase tracking-tighter">Technical Specification: 3121534312 v4.2</h1>
-                <p>The `3121534312` Codec is a multi-layered data obfuscation system engineered for digital metadata fields.</p>
+                <h1 class="text-2xl font-bold text-emerald-400 border-b border-emerald-800 pb-2 uppercase tracking-tighter">Technical Specification: The 3121534312 Cryptographic Framework</h1>
                 
-                <h3 class="text-emerald-500 font-bold uppercase mt-4">1. Decryption Pipeline</h3>
-                <ul class="list-disc pl-6 space-y-2">
-                    <li><strong>Scramble Phase:</strong> Pre-expansion transposition (14↔41, 25↔52, 36↔63).</li>
-                    <li><strong>Unsquish Protocol:</strong> Recursive expansion of digits 4, 5, 6. Equilibrium is reached when all compressed digits are cleared.</li>
-                    <li><strong>Trinary Mapping:</strong> Segmented 3-digit tokenization (e.g., 111-332 for A-Z).</li>
-                    <li><strong>Dual-Matrix:</strong> Baseline vs. Alternate number sets.</li>
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-6 p-4 bg-neutral-950 border border-emerald-900/50 font-mono">
+                    <div><span class="text-emerald-600 font-bold uppercase">Classification:</span> Iterative Compression Substitution Cipher (v4.1)</div>
+                    <div><span class="text-emerald-600 font-bold uppercase">Operational Timeline:</span> 2012 – 2026</div>
+                    <div class="col-span-1 md:col-span-2"><span class="text-emerald-600 font-bold uppercase">Primary Architect:</span> @3121534312</div>
+                </div>
 
-                <h3 class="text-emerald-500 font-bold uppercase mt-4">2. The 118 Collision</h3>
-                <p>Sensitive coordinates utilize an Alternate Matrix where code <strong>118</strong> renders <strong>1</strong>. In Baseline mode, it renders <strong>0</strong> (space). Misinterpreting this collision led to the historic "039" Tokyo longitude error.</p>
+                <h3 class="text-emerald-500 font-bold uppercase mt-6 border-b border-emerald-900/50 pb-1">1. Executive Summary</h3>
+                <p>The 3121534312 Codec is a multi-layered data obfuscation and compression system. It is engineered to transmit high-density information—including linguistic text, precise geographical coordinates, and formatting syntax—within the restrictive character limits of digital metadata fields. The system relies on a base-3 (trinary) foundation, augmented by a transposition layer and a recursive compression matrix.</p>
 
-                <h3 class="text-emerald-500 font-bold uppercase mt-4">3. Structural Resilience</h3>
-                <p>The system is prone to <strong>Framing Errors</strong>. A single missing integer causes a parse shift that destroys the legibility of the entire payload.</p>
+                <h3 class="text-emerald-500 font-bold uppercase mt-8 border-b border-emerald-900/50 pb-1">2. Decryption Pipeline (The Four Layers)</h3>
+                <p>To successfully extract plaintext from a numeric payload, the decoder must execute four distinct computational phases in strict sequence.</p>
+
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Phase I: The Scramble Phase (Transposition)</h4>
+                        <p>Identified through Java-based source code (ITZLOGHOTXD/Cipher.java), this layer introduces entropy by swapping positional integers before expansion. This prevents basic frequency analysis from identifying the underlying trinary tokens.</p>
+                        <ul class="list-disc pl-6 text-emerald-400 font-mono text-xs mt-2 bg-neutral-950 p-2 border border-emerald-900/30 rounded inline-block">
+                            <li>14 &harr; 41</li>
+                            <li>25 &harr; 52</li>
+                            <li>36 &harr; 63</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Phase II: The Unsquish Protocol (Decompression)</h4>
+                        <p>Redundant trinary pairs are collapsed into single placeholder integers (4, 5, and 6). Decryption requires a recursive expansion loop that continues until no compressed digits remain.</p>
+                        <ul class="list-disc pl-6 text-emerald-400 font-mono text-xs mt-2 bg-neutral-950 p-2 border border-emerald-900/30 rounded inline-block">
+                            <li>4 &rarr; 11</li>
+                            <li>5 &rarr; 22</li>
+                            <li>6 &rarr; 33</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Phase III: The Trinary Matrix (Base-3 Substitution)</h4>
+                        <p>Tokens are parsed in discrete 3-digit segments. Standard English characters (A-Z) map sequentially from 111 to 332.</p>
+                        <ul class="list-disc pl-6 mt-2 text-xs">
+                            <li><strong class="text-emerald-300">Functional Space:</strong> The digit 0 acts as a direct substitute for a whitespace null.</li>
+                            <li><strong class="text-emerald-300">Formatting Tokens:</strong> Codes in the 700 range designate UI elements (e.g., 717 = &gt; , 737 = **).</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Phase IV: Matrix Switching (Baseline vs. Alternate)</h4>
+                        <p>The codec employs context-dependent matrices for numerical data. This is specifically used to obfuscate coordinate data (e.g., Video 18: Tokyo Drop).</p>
+                        <table class="w-full mt-3 text-xs border-collapse border border-emerald-900/50">
+                            <thead>
+                                <tr class="bg-emerald-950">
+                                    <th class="border border-emerald-900/50 p-2 text-left">Digit</th>
+                                    <th class="border border-emerald-900/50 p-2 text-left">Baseline Matrix</th>
+                                    <th class="border border-emerald-900/50 p-2 text-left">Alternate Matrix (Sensitive)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="font-mono">
+                                <tr><td class="border border-emerald-900/50 p-2">0</td><td class="border border-emerald-900/50 p-2">118</td><td class="border border-emerald-900/50 p-2 text-emerald-700">—</td></tr>
+                                <tr><td class="border border-emerald-900/50 p-2">1</td><td class="border border-emerald-900/50 p-2">181</td><td class="border border-emerald-900/50 p-2 text-amber-500 font-bold">118</td></tr>
+                                <tr><td class="border border-emerald-900/50 p-2">2</td><td class="border border-emerald-900/50 p-2">182</td><td class="border border-emerald-900/50 p-2 text-amber-500">128</td></tr>
+                                <tr><td class="border border-emerald-900/50 p-2">3</td><td class="border border-emerald-900/50 p-2">183</td><td class="border border-emerald-900/50 p-2 text-amber-500">138</td></tr>
+                                <tr><td class="border border-emerald-900/50 p-2">...</td><td class="border border-emerald-900/50 p-2">...</td><td class="border border-emerald-900/50 p-2 text-amber-500">...</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="mt-3 text-xs p-3 bg-amber-900/20 border border-amber-500/30 rounded"><strong class="text-amber-500">The 118 Collision:</strong> Note that 118 is a collision point. In Baseline mode, it renders 0. In Alternate mode, it renders 1. Failing to toggle this matrix resulted in the historically documented "039" error in the Roppongi longitude (139.737757).</p>
+                    </div>
+                </div>
+
+                <h3 class="text-emerald-500 font-bold uppercase mt-8 border-b border-emerald-900/50 pb-1">3. Advanced Features</h3>
+                
+                <div class="space-y-6 mt-4">
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Unicode Encapsulation (791 Marker)</h4>
+                        <p>Unsupported characters (Emoji, Kanji, Cyrillic) utilize the 791 algorithmic marker.</p>
+                        <ol class="list-decimal pl-6 mt-2 text-xs space-y-1">
+                            <li>Parser detects 791.</li>
+                            <li>Relational mapping is suspended.</li>
+                            <li>The enclosed trinary sequence is treated as a Hexadecimal string.</li>
+                            <li>The string is converted to a codepoint and rendered as a universal Unicode character.</li>
+                            <li>Relational mapping resumes after the closing 791 marker.</li>
+                        </ol>
+                    </div>
+
+                    <div>
+                        <h4 class="text-emerald-400 font-bold">Signal Intelligence (SSTV Expansion)</h4>
+                        <p>As of the COM260X series, the project has evolved past textual metadata. The "Abyss Threshold" indicates a shift into Slow-Scan Television (SSTV). Modern payloads are screeching data walls hidden in audio tracks, requiring demodulation via software (MMSSTV) using internal "Stereo Mix" routing.</p>
+                    </div>
+                </div>
+
+                <h3 class="text-emerald-500 font-bold uppercase mt-8 border-b border-emerald-900/50 pb-1">4. Implementation Logic (Pseudocode)</h3>
+                <pre class="bg-neutral-950 border border-emerald-900/50 p-4 rounded text-[11px] text-emerald-400 overflow-x-auto mt-4 font-mono leading-relaxed">
+FUNCTION Execute_Decode(ciphertext):
+    // 1. Clear whitespace and newlines
+    data = Clean(ciphertext)
+    
+    // 2. Reverse Scramble Phase
+    IF Scramble_Toggle IS Active:
+        data = Swap(data, "14", "41")
+        data = Swap(data, "25", "52")
+        data = Swap(data, "36", "63")
+
+    // 3. Recursive Unsquish
+    WHILE data CONTAINS ('4','5','6'):
+        data = ReplaceAll(data, "4", "11")
+        data = ReplaceAll(data, "5", "22")
+        data = ReplaceAll(data, "6", "33")
+
+    // 4. Token Parsing Loop
+    WHILE index < length(data):
+        token = Substring(data, index, 3)
+        IF token == "791":
+            // Process Hex Buffer...
+        ELSE IF token[0] == "0":
+            Append " "
+        ELSE:
+            IF Alt_Matrix IS Active AND token IN ALT_NUMS:
+                Append ALT_NUMS[token]
+            ELSE:
+                Append BASE_DICT[token]
+                </pre>
+
+                <h3 class="text-emerald-500 font-bold uppercase mt-8 border-b border-emerald-900/50 pb-1">5. Intelligence Case Studies</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                    <div class="bg-neutral-950 p-4 border border-emerald-900/30 rounded">
+                        <h4 class="font-bold text-emerald-400 mb-2">Video 46: Mojibake Recovery</h4>
+                        <p class="text-xs">Decryption of <code>ãƒŠã‚¤ãƒˆãƒ‰ãƒ©ã‚¤ãƒ–ï¼ˆå¤‰æ ›æ¸ˆã ¿ï¼‰</code> revealed a UTF-8/ISO-8859-1 encoding mismatch. Recovery yielded <strong>ナイトドライブ（変換済み）</strong> ("Night Drive (Converted)"). This confirms the operator utilizes a Japanese localized OS, which correlates with the physical geocaching instructions found in Video 18.</p>
+                    </div>
+                    
+                    <div class="bg-neutral-950 p-4 border border-emerald-900/30 rounded">
+                        <h4 class="font-bold text-emerald-400 mb-2">Video 18: The Roppongi Command</h4>
+                        <ul class="text-xs space-y-1">
+                            <li><strong class="text-emerald-600">Coordinates:</strong> 35.664913, 139.737757</li>
+                            <li><strong class="text-emerald-600">Instruction:</strong> TAKE TRAIN GET BRIEFCASE CAR NUMBER 3 SEAT 27</li>
+                            <li><strong class="text-emerald-600">Significance:</strong> Marks the transition from digital cryptanalysis to physical field logistics within the Tokyo metropolitan rail network.</li>
+                        </ul>
+                    </div>
+                </div>
              </div>
         </div>
 
@@ -218,7 +338,11 @@
                 else if (REVERSE_DICT[c]) res += REVERSE_DICT[c];
                 else res += `791${c.codePointAt(0).toString(16)}791`;
             }
-            return res.replace(/11/g, '4').replace(/22/g, '5').replace(/33/g, '6');
+            res = res.replace(/11/g, '4').replace(/22/g, '5').replace(/33/g, '6');
+            if (document.getElementById('scramble-toggle').checked) {
+                res = applyScramble(res);
+            }
+            return res;
         }
 
         document.getElementById('btn-decode').addEventListener('click', () => {
@@ -245,6 +369,12 @@
             e.currentTarget.classList.replace('border-emerald-900/50', 'bg-emerald-900/40');
         }));
 
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag] || tag));
+        }
+
         document.getElementById('btn-fetch-yt').addEventListener('click', async () => {
             const apiKey = "AIzaSyBaflJ68KWk7Oar_ziYF8DTUHSwMPlVSvo";
             const results = document.getElementById('yt-results');
@@ -260,10 +390,25 @@
                     const data = await res.json();
                     vids = vids.concat(data.items); nextToken = data.nextPageToken;
                 } while (nextToken);
+                
+                const isScramble = document.getElementById('scramble-toggle').checked;
+                const isAlt = document.getElementById('alt-matrix-toggle').checked;
+
                 vids.reverse().forEach((v, i) => {
                     const d = document.createElement('div');
                     d.className = "border border-emerald-800/30 bg-neutral-900/30 p-4 rounded text-xs space-y-2";
-                    d.innerHTML = `<div>NODE #${i+1} | <a href="https://youtu.be/${v.snippet.resourceId.videoId}" target="_blank" class="underline">LINK</a></div><div><b>TITLE:</b> ${decodeTrinary(executeUnsquish(v.snippet.title, false), false)}</div>`;
+                    
+                    const decTitle = decodeTrinary(executeUnsquish(v.snippet.title, isScramble), isAlt);
+                    let descHtml = "";
+                    if (v.snippet.description) {
+                        const decDesc = v.snippet.description.split('\n').map(line => {
+                            const cleaned = line.replace(/\s+/g, '');
+                            return (/^[\dA-Fa-f]+$/.test(cleaned) && /\d/.test(cleaned)) ? decodeTrinary(executeUnsquish(cleaned, isScramble), isAlt) : line;
+                        }).join('\n');
+                        descHtml = `<div class="mt-2 pt-2 border-t border-emerald-900/50"><b>PAYLOAD:</b><br><span class="whitespace-pre-wrap break-words text-emerald-400 font-mono text-[10px]">${escapeHTML(decDesc)}</span></div>`;
+                    }
+
+                    d.innerHTML = `<div><span class="font-bold text-emerald-500">NODE #${i+1}</span> | <a href="https://youtu.be/${v.snippet.resourceId.videoId}" target="_blank" class="underline hover:text-emerald-300">LINK</a></div><div><b>TITLE:</b> <span class="font-bold text-emerald-300">${escapeHTML(decTitle)}</span></div>${descHtml}`;
                     results.appendChild(d);
                 });
             } catch(e) { results.textContent = "Error: " + e.message; }
