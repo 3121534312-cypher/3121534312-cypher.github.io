@@ -3,34 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3121534312 Omnitool Terminal v4.0</title>
+    <title>3121534312 Omnitool Terminal v4.2</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom Terminal Styles */
         body { background-color: #0a0a0a; color: #10b981; }
         ::-moz-selection { background: #064e3b; color: #d1fae5; }
         ::selection { background: #064e3b; color: #d1fae5; }
-        
         .scanline {
             background: linear-gradient(rgba(16,185,129,0.5) 1px, transparent 1px);
             background-size: 100% 4px;
-            pointer-events: none;
-            opacity: 0.03;
-            mix-blend-mode: overlay;
-            position: fixed;
-            inset: 0;
-            z-index: 50;
+            pointer-events: none; opacity: 0.03; mix-blend-mode: overlay;
+            position: fixed; inset: 0; z-index: 50;
         }
-
-        textarea, .scrollable {
-            scrollbar-width: thin;
-            scrollbar-color: #065f46 #0a0a0a;
-        }
-        
+        textarea, .scrollable { scrollbar-width: thin; scrollbar-color: #065f46 #0a0a0a; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #0a0a0a; }
         ::-webkit-scrollbar-thumb { background-color: #065f46; border-radius: 4px; }
-        
         .hidden-view { display: none !important; }
     </style>
 </head>
@@ -38,26 +26,23 @@
 
     <header class="mb-6 border-b border-emerald-800/50 pb-4 flex items-center justify-between">
         <div class="flex items-center gap-4">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"></path><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1"></path><path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"></path></svg>
             <div>
                 <h1 class="text-xl md:text-2xl font-bold tracking-widest text-emerald-400">PROJECT: 3121534312</h1>
-                <p class="text-xs text-emerald-700 uppercase tracking-widest">Omnitool Terminal (v4.0.0)</p>
+                <p class="text-xs text-emerald-700 uppercase tracking-widest">Omnitool Terminal (v4.2.0)</p>
             </div>
         </div>
     </header>
 
     <nav class="mb-6 flex flex-wrap gap-2 z-10 relative">
         <button data-target="view-codec" class="nav-tab px-4 py-2 text-sm flex items-center gap-2 border transition-colors bg-emerald-900/40 border-emerald-500 text-emerald-300">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>
-            Encoder / Decoder
+            [ CODEC ]
         </button>
         <button data-target="view-docs" class="nav-tab px-4 py-2 text-sm flex items-center gap-2 border transition-colors border-emerald-900/50 text-emerald-700 hover:border-emerald-700">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            Algorithm Docs
+            [ ALGORITHM DOCS ]
         </button>
         <button data-target="view-youtube" class="nav-tab px-4 py-2 text-sm flex items-center gap-2 border transition-colors border-emerald-900/50 text-emerald-700 hover:border-emerald-700">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon></svg>
-            Live Channel Link
+            [ LIVE CHANNEL ]
         </button>
     </nav>
 
@@ -69,10 +54,7 @@
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent"></div>
                 
                 <div class="flex flex-wrap justify-between items-center">
-                    <label class="text-xs text-emerald-600 uppercase tracking-widest flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                        I/O Buffer (Payload Stream)
-                    </label>
+                    <label class="text-xs text-emerald-600 uppercase tracking-widest">I/O Buffer (Payload Stream)</label>
                     <div class="flex gap-4 text-[10px] uppercase text-emerald-500 font-bold">
                         <label class="flex items-center gap-1 cursor-pointer hover:text-emerald-300">
                             <input type="checkbox" id="scramble-toggle" class="accent-emerald-500"> Scramble Phase
@@ -83,386 +65,210 @@
                     </div>
                 </div>
 
-                <textarea id="input-data" class="w-full h-32 bg-neutral-950 border border-emerald-900/50 p-3 text-emerald-400 focus:outline-none focus:border-emerald-500 resize-none font-mono text-sm" placeholder="Enter string to process..."></textarea>
+                <textarea id="input-data" class="w-full h-32 bg-neutral-950 border border-emerald-900/50 p-3 text-emerald-400 focus:outline-none focus:border-emerald-500 resize-none font-mono text-sm" placeholder="Paste numeric sequence here..."></textarea>
                 <div class="grid grid-cols-2 gap-4">
-                    <button id="btn-decode" class="bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-3 font-bold tracking-widest flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 9.9-1"></path></svg>
-                        [ DECODE ]
+                    <button id="btn-decode" class="bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-3 font-bold tracking-widest transition-all active:scale-[0.98]">
+                        DECODE
                     </button>
-                    <button id="btn-encode" class="bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-3 font-bold tracking-widest flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 0-9.9-1"></path></svg>
-                        [ ENCODE ]
+                    <button id="btn-encode" class="bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-3 font-bold tracking-widest transition-all active:scale-[0.98]">
+                        ENCODE
                     </button>
                 </div>
                 <div class="flex-grow flex flex-col gap-2 pt-2">
-                    <label class="text-xs text-emerald-600 uppercase tracking-widest flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                        Output Stream
-                    </label>
+                    <label class="text-xs text-emerald-600 uppercase tracking-widest">Output Result</label>
                     <textarea id="output-data" readonly class="w-full flex-grow min-h-[12rem] bg-neutral-950 border border-emerald-900/50 p-3 text-emerald-200 focus:outline-none resize-none font-mono text-sm break-all" placeholder="Awaiting execution..."></textarea>
                 </div>
             </div>
 
             <div class="space-y-6">
                 <div class="border border-emerald-800/30 bg-neutral-900/50 p-4 h-48 flex flex-col">
-                    <h3 class="text-xs text-emerald-600 uppercase tracking-widest mb-2 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-                        System Log
-                    </h3>
+                    <h3 class="text-xs text-emerald-600 uppercase tracking-widest mb-2 flex items-center gap-2">System Log</h3>
                     <div id="console-log" class="flex-grow overflow-y-auto font-mono text-xs space-y-1 text-emerald-700 flex flex-col justify-end"></div>
                 </div>
                 <div class="border border-emerald-800/30 bg-neutral-900/50 p-4 flex-grow">
-                    <h3 class="text-xs text-emerald-600 uppercase tracking-widest mb-4">Codec Matrices</h3>
-                    <div class="text-[10px] md:text-xs grid grid-cols-2 gap-x-4 gap-y-2 text-emerald-500/70">
-                        <div class="text-emerald-400 border-b border-emerald-900/50 pb-1 mb-1 col-span-2">Unsquish / Scramble Phase</div>
-                        <div>4 ↔ 11</div><div>14 ↔ 41</div>
-                        <div>5 ↔ 22</div><div>25 ↔ 52</div>
-                        <div>6 ↔ 33</div><div>36 ↔ 63</div>
-                        <div class="text-emerald-400 border-b border-emerald-900/50 pb-1 mt-3 mb-1 col-span-2">Dual Matrices</div>
-                        <div>(Base) 181=1</div><div>(Alt) 128=2</div>
-                        <div>(Base) 182=2</div><div>(Alt) 138=3</div>
-                        <div>(Base) 183=3</div><div>(Alt) 218=4</div>
+                    <h3 class="text-xs text-emerald-600 uppercase tracking-widest mb-4">Quick Reference</h3>
+                    <div class="text-[10px] md:text-xs grid grid-cols-1 gap-2 text-emerald-500/70">
+                        <div class="border-b border-emerald-900/50 pb-1 text-emerald-400">Layer A (Unsquish)</div>
+                        <div>4→11 | 5→22 | 6→33</div>
+                        <div class="border-b border-emerald-900/50 pb-1 mt-2 text-emerald-400">Layer B (Numeric)</div>
+                        <div class="grid grid-cols-2">
+                            <span>B: 181=1</span><span class="text-amber-500">A: 118=1</span>
+                            <span>B: 182=2</span><span class="text-amber-500">A: 128=2</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ALGORITHM DOCS VIEW (INTEL REPORT) -->
+        <!-- DOCS VIEW -->
         <div id="view-docs" class="view-section hidden-view border border-emerald-800/30 bg-neutral-900/50 p-6 rounded-sm flex-grow overflow-y-auto scrollable">
-            <div class="max-w-5xl mx-auto space-y-8 text-emerald-300/90 text-sm leading-relaxed pb-12">
-                <h1 class="text-3xl font-bold text-emerald-400 border-b-2 border-emerald-700 pb-4">Comprehensive Threat and Phenomenon Assessment: Project 3121534312</h1>
+             <div class="max-w-4xl mx-auto space-y-6 text-emerald-300/80 text-sm leading-relaxed pb-8">
+                <h1 class="text-2xl font-bold text-emerald-400 border-b border-emerald-800 pb-2 uppercase tracking-tighter">Technical Specification: 3121534312 v4.2</h1>
+                <p>The `3121534312` Codec is a multi-layered data obfuscation system engineered for digital metadata fields.</p>
                 
-                <section>
-                    <h2 class="text-xl font-bold text-emerald-400 mb-4">1. Executive Overview and Strategic Operating Context</h2>
-                    <p>Operating with unyielding consistency across a fourteen-year chronological timeline (2012–2026), Project "3121534312" represents a profound deviation from standard internet mysteries. Initiated via YouTube channel @3121534312, this operation evolved from primitive obfuscation into deploying sophisticated steganography, real-world logistical asset coordination, and complex network topologies.</p>
-                </section>
+                <h3 class="text-emerald-500 font-bold uppercase mt-4">1. Decryption Pipeline</h3>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Scramble Phase:</strong> Pre-expansion transposition (14↔41, 25↔52, 36↔63).</li>
+                    <li><strong>Unsquish Protocol:</strong> Recursive expansion of digits 4, 5, 6. Equilibrium is reached when all compressed digits are cleared.</li>
+                    <li><strong>Trinary Mapping:</strong> Segmented 3-digit tokenization (e.g., 111-332 for A-Z).</li>
+                    <li><strong>Dual-Matrix:</strong> Baseline vs. Alternate number sets.</li>
+                </ul>
 
-                <section class="border-t border-emerald-800/50 pt-6">
-                    <h2 class="text-xl font-bold text-emerald-400 mb-4">2. Architectural Deconstruction of the 3121534312 Codec</h2>
-                    <p>The codec is a three-layer iterative compression and substitution cipher. Its primary utility lies in embedding plaintext and coordinates within metadata fields by bypassing platform character limitations.</p>
-                    
-                    <h3 class="text-lg font-bold text-emerald-500 mt-6 mb-2">2.1 Layer A: Algorithmic "Unsquish" and Transposition</h3>
-                    <p>Redundant pairs are compressed into distinct digits. The "Scramble Phase" transposition identified in source repositories details swapping positional integers to thwart automated attacks:</p>
-                    <ul class="list-disc pl-8 mt-2 space-y-1 text-emerald-400 font-mono text-xs">
-                        <li>14 ↔ 41</li>
-                        <li>25 ↔ 52</li>
-                        <li>36 ↔ 63</li>
-                    </ul>
+                <h3 class="text-emerald-500 font-bold uppercase mt-4">2. The 118 Collision</h3>
+                <p>Sensitive coordinates utilize an Alternate Matrix where code <strong>118</strong> renders <strong>1</strong>. In Baseline mode, it renders <strong>0</strong> (space). Misinterpreting this collision led to the historic "039" Tokyo longitude error.</p>
 
-                    <h3 class="text-lg font-bold text-emerald-500 mt-6 mb-2">2.2 Layer B: Trinary Syntax and Dual Matrices</h3>
-                    <p>Expanded strings consist of integers 1, 2, 3, and 0, parsed in discrete three-digit segments. The project utilizes context-dependent number matrices to obfuscate coordinates:</p>
-                    <ul class="list-disc pl-8 mt-2 space-y-1">
-                        <li><strong>Baseline Matrix:</strong> Predictable sequential pattern (e.g., 181=1, 182=2).</li>
-                        <li><strong>Alternate Matrix:</strong> Strictly for sensitive coordinates, ending exclusively in integer 8 (e.g., 128=2, 218=4).</li>
-                    </ul>
-                </section>
-
-                <section class="border-t border-emerald-800/50 pt-6">
-                    <h2 class="text-xl font-bold text-emerald-400 mb-4">3. Historical Landmarks</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-neutral-950 p-4 border border-emerald-900/30">
-                            <h4 class="font-bold text-emerald-400 mb-2 underline">Video 18: The Roppongi Drop</h4>
-                            <p class="text-xs">Extracted coordinates 35.664913, 139.737757 point to Tokyo. Instructions: "TAKE TRAIN GET BRIEFCASE CAR NUMBER 3 SEAT 27." Transition from digital to physical operations.</p>
-                        </div>
-                        <div class="bg-neutral-950 p-4 border border-emerald-900/30">
-                            <h4 class="font-bold text-emerald-400 mb-2 underline">Video 46: Mojibake Artifact</h4>
-                            <p class="text-xs">Corrupted string recovered as ナイトドライブ (Night Drive). Confirms Japanese native OS environment for the operator.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="text-center text-xs text-emerald-700 uppercase tracking-widest pt-8">- END OF ARCHIVED INTEL -</div>
-            </div>
+                <h3 class="text-emerald-500 font-bold uppercase mt-4">3. Structural Resilience</h3>
+                <p>The system is prone to <strong>Framing Errors</strong>. A single missing integer causes a parse shift that destroys the legibility of the entire payload.</p>
+             </div>
         </div>
 
-        <!-- CHANNEL FETCH VIEW -->
+        <!-- CHANNEL VIEW -->
         <div id="view-youtube" class="view-section hidden-view flex flex-col flex-grow h-full">
-            <div id="api-key-container" class="border border-emerald-800/30 bg-neutral-900/50 p-4 mb-4 flex flex-col md:flex-row gap-4 items-center justify-between">
-                <div class="flex-grow w-full text-xs text-emerald-600 uppercase tracking-widest">
-                    Live Channel Link configured with restricted site API Key.
-                </div>
-                <button id="btn-fetch-yt" class="w-full md:w-auto bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-2 px-6 font-bold tracking-widest flex items-center justify-center gap-2 transition-all active:scale-[0.98] shrink-0 h-[42px]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2v6h-6"></path><path d="M21 13a9 9 0 1 1-3-7.7L21 8"></path></svg>
-                    EXECUTE FETCH
+            <div class="border border-emerald-800/30 bg-neutral-900/50 p-4 mb-4 flex justify-between items-center">
+                <span class="text-xs text-emerald-600 uppercase tracking-widest">Restricted Node Access Protocol v3.0</span>
+                <button id="btn-fetch-yt" class="bg-emerald-950 border border-emerald-600 hover:bg-emerald-900 text-emerald-400 py-2 px-6 font-bold tracking-widest transition-all">
+                    FETCH CHANNEL DATA
                 </button>
             </div>
-            <div id="yt-loader" class="hidden-view text-center py-8 text-emerald-500 animate-pulse">Connecting to node @3121534312...</div>
-            <div id="yt-results" class="flex-grow overflow-y-auto scrollable space-y-4 pr-2">
-                <div class="text-center py-8 text-emerald-800/50 text-sm">Awaiting execution command...</div>
-            </div>
+            <div id="yt-loader" class="hidden-view text-center py-8 text-emerald-500 animate-pulse">CONNECTING...</div>
+            <div id="yt-results" class="flex-grow overflow-y-auto scrollable space-y-4 pr-2"></div>
         </div>
     </main>
 
     <script>
-        // ==========================================
-        // CRYPTOGRAPHIC DICTIONARY & LOGIC
-        // ==========================================
         const TRINARY_DICT = {
             '111': 'A', '112': 'B', '113': 'C', '121': 'D', '122': 'E', '123': 'F', '131': 'G', '132': 'H', '133': 'I',
             '211': 'J', '212': 'K', '213': 'L', '221': 'M', '222': 'N', '223': 'O', '231': 'P', '232': 'Q', '233': 'R',
             '311': 'S', '312': 'T', '313': 'U', '321': 'V', '322': 'W', '323': 'X', '331': 'Y', '332': 'Z',
             '117': '.', '227': '?', '337': '!', '127': ',', '217': '-', '237': ';', '317': ':', 
             '711': '@', '712': '#', '713': '/', '721': '%', '723': '\\', '171': "'", '272': '"', '373': '(',
-            '717': '> ', '727': '[', '732': '] ', '737': '**', '722': '[', '330': '] ',
-            // Baseline Matrix
             '118': '0', '181': '1', '182': '2', '183': '3', '281': '4', '282': '5', '283': '6', '381': '7', '382': '8', '383': '9',
-            // Alternate Matrix (Coordinates)
-            '128': '2', '138': '3', '218': '4', '228': '5', '238': '6', '318': '7', '328': '8', '338': '9',
-            '811': '+', '812': '_', '813': '*', '822': '=', '823': '^'
+            '811': '+', '812': '_', '813': '*', '822': '=', '823': '^', '717': '> ', '737': '**'
+        };
+
+        const ALT_NUMS = {
+            '118': '1', '128': '2', '138': '3', '218': '4', '228': '5', '238': '6', '318': '7', '328': '8', '338': '9'
         };
 
         const REVERSE_DICT = {};
-        for (const [key, val] of Object.entries(TRINARY_DICT)) {
-            if (!REVERSE_DICT[val]) REVERSE_DICT[val] = key;
+        for (const [k, v] of Object.entries(TRINARY_DICT)) { if (!REVERSE_DICT[v]) REVERSE_DICT[v] = k; }
+        const ALT_ENCODE = { '1':'118', '2':'128', '3':'138', '4':'218', '5':'228', '6':'238', '7':'318', '8':'328', '9':'338' };
+
+        function addLog(msg) {
+            const time = new Date().toLocaleTimeString();
+            const logEl = document.getElementById('console-log');
+            const entry = document.createElement('div');
+            entry.textContent = `[${time}] ${msg}`;
+            logEl.appendChild(entry);
+            if (logEl.childNodes.length > 8) logEl.removeChild(logEl.firstChild);
+            logEl.scrollTop = logEl.scrollHeight;
         }
 
-        const ALT_NUMS_ENCODE = {
-            '2': '128', '3': '138', '4': '218', '5': '228', '6': '238', '7': '318', '8': '328', '9': '338'
-        };
-
-        // --- Intelligence Update: Scramble Phase Logic ---
         function applyScramble(data) {
-            let result = data;
-            const swaps = [['14','41'], ['41','14'], ['25','52'], ['52','25'], ['36','63'], ['63','36']];
-            // Uses a temporary placeholder to ensure mutual swaps don't collapse
-            swaps.forEach(([from, to]) => {
-                result = result.split(from).join('__' + to + '__');
-            });
-            return result.split('__').join('');
+            let res = data;
+            const maps = [['14','41'], ['41','14'], ['25','52'], ['52','25'], ['36','63'], ['63','36']];
+            maps.forEach(([from, to]) => { res = res.split(from).join('__' + to + '__'); });
+            return res.split('__').join('');
         }
 
-        function executeUnsquish(data) {
-            let result = data;
-            const doScramble = document.getElementById('scramble-toggle').checked;
-            
-            // Scramble occurs before unsquish expansion per Java repo
-            if (doScramble) result = applyScramble(result);
-
+        function executeUnsquish(data, forceScramble) {
+            let res = data.replace(/\s+/g, '');
+            if (forceScramble || document.getElementById('scramble-toggle').checked) {
+                res = applyScramble(res);
+            }
             let iterations = 0;
-            while (/[456]/.test(result) && iterations < 100) {
-                result = result.replace(/4/g, '11').replace(/5/g, '22').replace(/6/g, '33');
+            while (/[456]/.test(res) && iterations < 100) {
+                res = res.replace(/4/g, '11').replace(/5/g, '22').replace(/6/g, '33');
                 iterations++;
             }
-            return result;
+            return res;
         }
 
-        function decodeTrinary(data) {
-            let plaintext = "";
-            let i = 0;
-            let inUnicode = false;
-            let hexBuffer = "";
-
+        function decodeTrinary(data, forceAlt) {
+            let plaintext = ""; let i = 0;
+            const useAlt = forceAlt !== undefined ? forceAlt : document.getElementById('alt-matrix-toggle').checked;
             while (i < data.length) {
                 if (data.substring(i, i + 3) === "791") {
-                    if (inUnicode) {
-                        try { plaintext += String.fromCodePoint(parseInt(hexBuffer, 16)); } catch (e) { plaintext += "?"; }
-                        hexBuffer = ""; inUnicode = false;
-                    } else { inUnicode = true; }
-                    i += 3; continue;
+                    let endIdx = data.indexOf("791", i + 3);
+                    if (endIdx !== -1) {
+                        try {
+                            const hex = data.substring(i + 3, endIdx);
+                            plaintext += String.fromCodePoint(parseInt(hex, 16));
+                        } catch(e) { plaintext += "?"; }
+                        i = endIdx + 3; continue;
+                    }
                 }
-                if (inUnicode) { hexBuffer += data[i]; i++; continue; }
                 if (data[i] === '0') { plaintext += " "; i++; continue; }
                 let token = data.substring(i, i + 3);
                 if (token.length === 3) {
-                    plaintext += TRINARY_DICT[token] ? TRINARY_DICT[token] : "?";
+                    if (token === '118') addLog("COLLISION_118: Decoding as " + (useAlt ? "1" : "0"));
+                    if (useAlt && ALT_NUMS[token]) plaintext += ALT_NUMS[token];
+                    else plaintext += TRINARY_DICT[token] || "?";
                     i += 3;
-                } else { break; }
+                } else break;
             }
             return plaintext;
         }
 
-        function executeSquish(data) {
-            let result = data.replace(/11/g, '4').replace(/22/g, '5').replace(/33/g, '6');
-            if (document.getElementById('scramble-toggle').checked) result = applyScramble(result);
-            return result;
-        }
-
-        function encodeTrinary(plaintext) {
-            let ciphertext = "";
-            const text = plaintext.toUpperCase();
-            const useAlt = document.getElementById('alt-matrix-toggle').checked;
-
-            for (let i = 0; i < text.length; i++) {
-                let char = text[i];
-                if (char === " ") { ciphertext += "0"; continue; }
-                
-                if (useAlt && ALT_NUMS_ENCODE[char]) {
-                    ciphertext += ALT_NUMS_ENCODE[char];
-                } else if (REVERSE_DICT[char]) {
-                    ciphertext += REVERSE_DICT[char];
-                } else {
-                    let hex = char.codePointAt(0).toString(16);
-                    ciphertext += `791${hex}791`;
-                }
+        function encodeTrinary(text) {
+            let res = ""; const useAlt = document.getElementById('alt-matrix-toggle').checked;
+            for (let c of text.toUpperCase()) {
+                if (c === " ") { res += "0"; continue; }
+                if (useAlt && ALT_ENCODE[c]) res += ALT_ENCODE[c];
+                else if (REVERSE_DICT[c]) res += REVERSE_DICT[c];
+                else res += `791${c.codePointAt(0).toString(16)}791`;
             }
-            return ciphertext;
-        }
-
-        function processCiphertext(text) {
-            if (!text) return "";
-            const lines = text.split('\n');
-            const decodedLines = lines.map(line => {
-                const cleanedLine = line.replace(/\s+/g, '');
-                if (/^[\dA-Fa-f]+$/.test(cleanedLine) && /\d/.test(cleanedLine)) {
-                    return decodeTrinary(executeUnsquish(cleanedLine));
-                }
-                return line;
-            });
-            return decodedLines.join('\n');
-        }
-
-        // ==========================================
-        // UI & STATE MANAGEMENT
-        // ==========================================
-        const tabs = document.querySelectorAll('.nav-tab');
-        const views = document.querySelectorAll('.view-section');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                views.forEach(v => v.classList.add('hidden-view'));
-                tabs.forEach(t => {
-                    t.classList.remove('bg-emerald-900/40', 'border-emerald-500', 'text-emerald-300');
-                    t.classList.add('border-emerald-900/50', 'text-emerald-700');
-                });
-                const targetId = e.currentTarget.getAttribute('data-target');
-                document.getElementById(targetId).classList.remove('hidden-view');
-                e.currentTarget.classList.remove('border-emerald-900/50', 'text-emerald-700');
-                e.currentTarget.classList.add('bg-emerald-900/40', 'border-emerald-500', 'text-emerald-300');
-            });
-        });
-
-        const logHistory = [];
-        const consoleLogEl = document.getElementById('console-log');
-        
-        function addLog(msg) {
-            const time = new Date().toLocaleTimeString();
-            logHistory.push(`[${time}] ${msg}`);
-            if (logHistory.length > 5) logHistory.shift(); 
-            consoleLogEl.innerHTML = logHistory.map(log => `<div class="break-words leading-tight">${log}</div>`).join('');
-            if(consoleLogEl) consoleLogEl.scrollTop = consoleLogEl.scrollHeight;
+            return res.replace(/11/g, '4').replace(/22/g, '5').replace(/33/g, '6');
         }
 
         document.getElementById('btn-decode').addEventListener('click', () => {
-            const rawData = document.getElementById('input-data').value.replace(/\s+/g, '');
-            if (!rawData) return;
-            document.getElementById('output-data').value = '';
-            addLog("DECODE: Executing pipeline...");
-            document.getElementById('output-data').value = decodeTrinary(executeUnsquish(rawData));
+            const val = document.getElementById('input-data').value;
+            if(!val) return;
+            document.getElementById('output-data').value = decodeTrinary(executeUnsquish(val));
             addLog("DECODE: Complete.");
         });
 
         document.getElementById('btn-encode').addEventListener('click', () => {
-            const rawText = document.getElementById('input-data').value;
-            if (!rawText) return;
-            document.getElementById('output-data').value = '';
-            addLog("ENCODE: Executing pipeline...");
-            document.getElementById('output-data').value = executeSquish(encodeTrinary(rawText));
+            const val = document.getElementById('input-data').value;
+            if(!val) return;
+            document.getElementById('output-data').value = encodeTrinary(val);
             addLog("ENCODE: Complete.");
         });
 
-        addLog("SYSTEM READY. OMNITOOL V4.0 LOADED.");
+        const tabs = document.querySelectorAll('.nav-tab');
+        const views = document.querySelectorAll('.view-section');
+        tabs.forEach(t => t.addEventListener('click', (e) => {
+            views.forEach(v => v.classList.add('hidden-view'));
+            tabs.forEach(btn => btn.classList.replace('bg-emerald-900/40', 'border-emerald-900/50'));
+            const target = e.currentTarget.getAttribute('data-target');
+            document.getElementById(target).classList.remove('hidden-view');
+            e.currentTarget.classList.replace('border-emerald-900/50', 'bg-emerald-900/40');
+        }));
 
-        // ==========================================
-        // TAB 3: FETCH LIVE DATA
-        // ==========================================
-        const ytLoader = document.getElementById('yt-loader');
-        const ytResults = document.getElementById('yt-results');
-        const btnFetchYt = document.getElementById('btn-fetch-yt');
-
-        function renderYouTubeResults(videos) {
-            ytResults.innerHTML = `<div class="text-emerald-400 font-bold mb-4 border-b border-emerald-800 pb-2">Successfully decrypted ${videos.length} videos.</div>`;
-            
-            videos.forEach((video, index) => {
-                const vidId = (video.snippet && video.snippet.resourceId && video.snippet.resourceId.videoId) ? video.snippet.resourceId.videoId : video.id || 'UNKNOWN';
-                const rawTitle = video.title || (video.snippet ? video.snippet.title : '');
-                const rawDesc = video.description || (video.snippet ? video.snippet.description : '');
-                const date = video.publishedAt ? video.publishedAt.substring(0, 10) : (video.snippet && video.snippet.publishedAt ? video.snippet.publishedAt.substring(0, 10) : 'ARCHIVE DATA');
-                
-                const decodedTitle = processCiphertext(rawTitle);
-                const decodedDesc = processCiphertext(rawDesc);
-                const videoUrl = `https://youtu.be/${vidId}`;
-
-                const card = document.createElement('div');
-                card.className = 'border border-emerald-800/30 bg-neutral-900/30 p-4 rounded text-sm space-y-3';
-                
-                let descHTML = '';
-                if (rawDesc.trim() !== '') {
-                    descHTML = `
-                        <div class="mt-3 pt-3 border-t border-emerald-900/30 grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="min-w-0">
-                                <span class="text-xs text-emerald-700 uppercase block mb-1">Raw Description</span>
-                                <div class="text-emerald-500/70 whitespace-pre-wrap font-mono text-xs break-words">${escapeHTML(rawDesc)}</div>
-                            </div>
-                            <div class="min-w-0">
-                                <span class="text-xs text-emerald-500 font-bold uppercase block mb-1">Decoded Description</span>
-                                <div class="text-emerald-300 whitespace-pre-wrap font-mono text-xs break-words">${escapeHTML(decodedDesc)}</div>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                card.innerHTML = `
-                    <div class="flex flex-wrap justify-between items-start gap-2 mb-2">
-                        <div class="text-emerald-600 font-bold">VIDEO #${index + 1}</div>
-                        <div class="text-emerald-700 text-xs min-w-0">${date} | <a href="${videoUrl}" target="_blank" class="hover:text-emerald-400 underline decoration-emerald-800 break-all">${videoUrl}</a></div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="min-w-0">
-                            <span class="text-xs text-emerald-700 uppercase block mb-1">Raw Title</span>
-                            <div class="text-emerald-500/70 font-mono break-words">${escapeHTML(rawTitle)}</div>
-                        </div>
-                        <div class="min-w-0">
-                            <span class="text-xs text-emerald-500 font-bold uppercase block mb-1">Decoded Title</span>
-                            <div class="text-emerald-300 font-mono font-bold break-words">${escapeHTML(decodedTitle)}</div>
-                        </div>
-                    </div>
-                    ${descHTML}
-                `;
-                ytResults.appendChild(card);
-            });
-        }
-
-        function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, tag => ({
-                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
-            }[tag]));
-        }
-
-        btnFetchYt.addEventListener('click', async () => {
+        document.getElementById('btn-fetch-yt').addEventListener('click', async () => {
             const apiKey = "AIzaSyBaflJ68KWk7Oar_ziYF8DTUHSwMPlVSvo";
-            ytResults.innerHTML = '';
-            ytLoader.classList.remove('hidden-view');
-            btnFetchYt.disabled = true;
-            btnFetchYt.classList.add('opacity-50', 'cursor-not-allowed');
-
+            const results = document.getElementById('yt-results');
+            const loader = document.getElementById('yt-loader');
+            results.innerHTML = ''; loader.classList.remove('hidden-view');
             try {
-                const channelRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=@3121534312&key=${apiKey}`);
-                const channelData = await channelRes.json();
-                
-                if (channelData.error) throw new Error(channelData.error.message);
-                const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
-
-                let videos = [];
-                let nextPageToken = "";
+                const cRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&forHandle=@3121534312&key=${apiKey}`);
+                const cData = await cRes.json();
+                const uploadsId = cData.items[0].contentDetails.relatedPlaylists.uploads;
+                let vids = []; let nextToken = "";
                 do {
-                    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsPlaylistId}&key=${apiKey}${nextPageToken ? '&pageToken=' + nextPageToken : ''}`;
-                    const res = await fetch(url);
+                    const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${uploadsId}&key=${apiKey}${nextToken ? '&pageToken='+nextToken : ''}`);
                     const data = await res.json();
-                    if (data.items) videos = videos.concat(data.items);
-                    nextPageToken = data.nextPageToken;
-                } while (nextPageToken);
-
-                videos.reverse();
-                renderYouTubeResults(videos);
-            } catch (err) {
-                ytResults.innerHTML = `<div class="text-red-500 p-4 border border-red-900/50 bg-red-950/30">API EXCEPTION: ${err.message}</div>`;
-            } finally {
-                ytLoader.classList.add('hidden-view');
-                btnFetchYt.disabled = false;
-                btnFetchYt.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
+                    vids = vids.concat(data.items); nextToken = data.nextPageToken;
+                } while (nextToken);
+                vids.reverse().forEach((v, i) => {
+                    const d = document.createElement('div');
+                    d.className = "border border-emerald-800/30 bg-neutral-900/30 p-4 rounded text-xs space-y-2";
+                    d.innerHTML = `<div>NODE #${i+1} | <a href="https://youtu.be/${v.snippet.resourceId.videoId}" target="_blank" class="underline">LINK</a></div><div><b>TITLE:</b> ${decodeTrinary(executeUnsquish(v.snippet.title, false), false)}</div>`;
+                    results.appendChild(d);
+                });
+            } catch(e) { results.textContent = "Error: " + e.message; }
+            finally { loader.classList.add('hidden-view'); }
         });
-
     </script>
 </body>
 </html>
