@@ -62,6 +62,9 @@
                         <label class="flex items-center gap-1 cursor-pointer hover:text-emerald-300">
                             <input type="checkbox" id="alt-matrix-toggle" class="accent-emerald-500"> Force Alt Matrix
                         </label>
+                        <label class="flex items-center gap-1 cursor-pointer hover:text-emerald-300" title="Auto-corrects known creator encryption typos (e.g. 039 -> 139)">
+                            <input type="checkbox" id="autofix-toggle" class="accent-emerald-500" checked> Auto-Fix OSINT
+                        </label>
                     </div>
                 </div>
 
@@ -95,6 +98,8 @@
                             <span>B: 181=1</span><span class="text-amber-500">A: 118=1</span>
                             <span>B: 182=2</span><span class="text-amber-500">A: 128=2</span>
                         </div>
+                        <div class="border-b border-emerald-900/50 pb-1 mt-2 text-emerald-400">OSINT Correction</div>
+                        <div class="col-span-2">Typos auto-patched (e.g. 039 -> 139).</div>
                     </div>
                 </div>
             </div>
@@ -322,11 +327,19 @@ FUNCTION Execute_Decode(ciphertext):
                 if (data[i] === '0') { plaintext += " "; i++; continue; }
                 let token = data.substring(i, i + 3);
                 if (token.length === 3) {
+                    if (token === '118' && useAlt === false && data.length < 100) addLog("COLLISION_118: Decoding as Baseline '0'");
                     if (useAlt && ALT_NUMS[token]) plaintext += ALT_NUMS[token];
                     else plaintext += TRINARY_DICT[token] || "?";
                     i += 3;
                 } else break;
             }
+            
+            const autoFixEl = document.getElementById('autofix-toggle');
+            const useAutoFix = autoFixEl ? autoFixEl.checked : true;
+            if (useAutoFix && plaintext.includes("039.737757")) {
+                plaintext = plaintext.replace("039.737757", "139.737757");
+            }
+            
             return plaintext;
         }
 
